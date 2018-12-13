@@ -18,7 +18,7 @@ class App extends Component {
     this.setState({
       movies: json
     });
-    console.log("fortunes", this.state.fortunes);
+    console.log("movies", this.state.movies);
   } 
   
   

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import YouTube from 'react-youtube';
 
 
 class Home extends Component {
