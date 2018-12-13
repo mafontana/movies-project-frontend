@@ -45,3 +45,17 @@ h1 {
 .text {
   width: 60%;
 }
+
+.Index {
+
+  height: 300px;
+  width: 100%;
+}
+
+.indexHeader {
+  height: 80px;
+  width: 100%;
+  background-color: #4BA2BD;
+  margin-top: 50px;
+}
+

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Home from "./components/Home";
+import Index from "./components/Index";
 
 
 class App extends Component {
@@ -21,11 +21,27 @@ class App extends Component {
     console.log("movies", this.state.movies);
   } 
   
+ 
   
   render() {
+
+    const movieTitles = this.state.movies.map(movie => 
+                    <tr><td>{movie.title}</td>
+                    
+                    
+                    </tr>
+                    
+                    
+                    
+                    
+                    )
+    console.log("movie titles", movieTitles)
+
     return (
       <div className="App">
         <Home />
+        <Index
+          movieTitles={movieTitles} />
       </div>
     );
   }
