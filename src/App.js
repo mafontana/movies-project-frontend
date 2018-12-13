@@ -27,8 +27,9 @@ class App extends Component {
 
     const movieTitles = this.state.movies.map(movie => 
                     <tr><td>{movie.title}</td>
-                    
-                    
+                        <td>{movie.director}</td>
+                        <td>{movie.year}</td>
+                        <td>{movie.rating}</td>
                     </tr>
                     
                     
