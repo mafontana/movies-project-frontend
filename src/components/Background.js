@@ -5,7 +5,7 @@ class Background extends Component {
     render() {
       return (
         <div className="Background">
-        <h1>HIIIIIIIII </h1>
+        <h1>Lambchop's Movie Ratings </h1>
         </div>
       );
     }
