@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Background from "./components/Background";
 import Home from "./components/Home";
 
 

@@ -39,9 +39,9 @@ h1 {
 .rightSideBox {
   display: flex;
   margin-left: 0;
-  width: 70%
+  width: 80%
 }
 
 .text {
-  width: 70%;
+  width: 60%;
 }
