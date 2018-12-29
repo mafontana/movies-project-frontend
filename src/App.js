@@ -35,11 +35,15 @@ tableRowHover = () => {
     console.log("all movies", movieTitles)
 
     const movies = this.state.movies.map(movie => 
-          <tr className="tableData"><td>{movie.title}</td>
+          <tr className="tableData">
+              <td>{movie.title}</td>
               <td>{movie.director}</td>
               <td>{movie.year}</td>
               <td>{movie.my_rating}</td>
               <td><img src={movie.poster_url} /></td>
+              <td><button>Delete Movie</button></td>
+              <td><button>Edit</button></td>
+
           </tr>
   )
 
@@ -47,7 +51,8 @@ tableRowHover = () => {
       <div className="App">
         <Home />
         <Index
-        movieTitles={movies} />
+        movieTitles={movies}
+        tableRowHover={this.tableRowHover} />
       </div>
     );
   }
@@ -56,15 +61,5 @@ tableRowHover = () => {
 export default App;
 
 
-// <Index
-// movieTitles={this.state.movies} />
+// onMouseOver={this.props.tableRowHover}
 
-
-// const movies = this.state.movies.map(movie => 
-//   <tr><td>{movie.title}</td>
-//       <td>{movie.director}</td>
-//       <td>{movie.year}</td>
-//       <td>{movie.rating}</td>
-//       <td>{movie.poster_url}</td>
-//   </tr>
-//   )
