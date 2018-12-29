@@ -1,4 +1,7 @@
-
+body {
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Bangers', cursive;
+}
 
 h1 {
   color: black;
@@ -25,7 +28,10 @@ h1 {
 #backgroundPic {
   height: 300px;
   width: 500px;
+}
 
+.indexHeader {
+  text-align: center;
 }
 
 h1 {
@@ -64,18 +70,39 @@ img {
   width: auto;
 }
 
-img:hover {
+.tableData {
+  transition: 2s;
+  background-color: lightgray;
+}
+
+@keyframes tableChange {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+
+
+.tableData:hover {
   transform: scale(1.5);
+  background-color: #4BA2BD;
 }
 
 table {
-  margin-left: 30%;
   margin-top: 20px;
 }
 
+.tableDiv {
+  display: flex;
+  justify-content: center;
+}
+
 table {
-  border: 1px solid black;
-  border-radius: 25px;
+  /* border: 1px solid black;
+  border-radius: 25px; */
   text-align: center;
 }
 
@@ -85,5 +112,7 @@ th, td {
 }
 
 th {
-  font-size: 20px;
+  font-size: 40px;
 }
+
+

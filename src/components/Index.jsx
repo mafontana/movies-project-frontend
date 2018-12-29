@@ -8,24 +8,19 @@ class Index extends Component {
       return (
         <div className="Index">
             <div className="indexHeader">
-            <h1>Lamb's fav movies...</h1>
+            <h1>Lambchop's Favorite Movies:</h1>
             </div>
-            
-
-            <table>
-            <tr>
-              <th>Title</th>
-              <th>Director</th>
-              <th>Year</th>
-              <th>Lamb Rating</th>
-            </tr>
-           
-              {this.props.movieTitles}
-              
-            
-           
-          </table>
-
+          <div className="tableDiv">
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Director</th>
+                        <th>Year</th>
+                        <th>Lamb Rating</th>
+                    </tr>
+                    {this.props.movieTitles}
+                </table>
+            </div>
         
 
 

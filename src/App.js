@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: []
+      movies: [],
+      tableRowHover: false
     }
   }
   
@@ -22,6 +23,11 @@ class App extends Component {
   } 
   
  
+tableRowHover = () => {
+      console.log("hello")
+}
+
+
   
   render() {
 
@@ -29,11 +35,11 @@ class App extends Component {
     console.log("all movies", movieTitles)
 
     const movies = this.state.movies.map(movie => 
-          <tr><td>{movie.title}</td>
+          <tr className="tableData"><td>{movie.title}</td>
               <td>{movie.director}</td>
               <td>{movie.year}</td>
               <td>{movie.my_rating}</td>
-              <img src={movie.poster_url} />
+              <td><img src={movie.poster_url} /></td>
           </tr>
   )
 
