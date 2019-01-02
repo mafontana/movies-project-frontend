@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       movies: [],
-      selectedMovieID: 0
+      selectedMovie: {}
     }
   }
   
@@ -24,17 +24,10 @@ class App extends Component {
   } 
   
  handleClickEdit = (movie) => {
- console.log(movie)
- console.log("you clicked the edit button")
-  //   const selectedMovie = this.state.movies.filter(movie => 
-  //   movie.id = id)
-  //   return selectedMovie
-
-  // this.setState({
-  //   selectedMovieID: selectedMovie
-
-  // })
-  // console.log("this is a new ID", selectedMovie)
+  console.log(movie)
+  this.setState({
+    selectedMovie: movie
+  })
  }
 
   render() {
@@ -49,7 +42,8 @@ class App extends Component {
         <Index
         movieTitles={this.state.movies}
         handleClickEdit={this.handleClickEdit}/>
-        <Edit handleClickEdit={this.handleClickEdit} />
+        <Edit handleClickEdit={this.handleClickEdit} 
+              selectedMovie={this.state.selectedMovie}/>
       </div>
     );
   }

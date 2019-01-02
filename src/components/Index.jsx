@@ -46,5 +46,3 @@ class Index extends Component {
   }
   
   export default Index;
-
-  //() => this.props.handleClickEdit(this.props.movieTitles.id)
