@@ -5,6 +5,21 @@ class Index extends Component {
 
 
     render() {
+
+
+    const movies = this.props.movieTitles.map(movie => 
+          <tr className="tableData">
+              <td>{movie.title}</td>
+              <td>{movie.director}</td>
+              <td>{movie.year}</td>
+              <td>{movie.my_rating}</td>
+              <td><img src={movie.poster_url} /></td>
+              <td><button>Delete Movie</button></td>
+              <td><button onClick={this.props.handleClickEdit.bind(this, movie)}>Edit</button></td>
+          </tr>
+  )
+
+
       return (
         <div className="Index">
             <div className="indexHeader">
@@ -16,9 +31,10 @@ class Index extends Component {
                         <th>Title</th>
                         <th>Director</th>
                         <th>Year</th>
-                        <th>Lamb Rating</th>
+                        <th>Rating</th>
                     </tr>
-                    {this.props.movieTitles}
+
+                    {movies}
                 </table>
             </div>
         
@@ -30,3 +46,5 @@ class Index extends Component {
   }
   
   export default Index;
+
+  //() => this.props.handleClickEdit(this.props.movieTitles.id)
