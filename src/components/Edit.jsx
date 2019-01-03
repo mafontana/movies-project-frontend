@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 
 
 class Edit extends Component {
@@ -7,11 +8,32 @@ class Edit extends Component {
         this.state = {
           movieName: "",
           movieDirector: "",
-          movieYear: "",
-          movieRating: ""
+          movieYear: 0,
+          movieRating: 0
         }
+        this.handleNameInput = this.handleNameInput.bind(this)
+     
       }
     
+    handleSubmit = (event) => {
+        event.preventDefault()
+        fetch('https://movies-project-maf.herokuapp.com/', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: this.state.movieName,
+                director: this.state.movieDirector,
+                year: this.state.movieYear,
+                my_rating: this.state.movieRating,
+                poster_url: ""
+  })
+})
+            console.log("you submit the form")
+    }
+
+
     handleNameInput = (event) => {
         console.log(event.target.value)
         this.setState({
@@ -22,31 +44,34 @@ class Edit extends Component {
     handleDirectorInput = (event) => {
         console.log(event.target.value)
         this.setState({
-            movieName: event.target.value
+            movieDirector: event.target.value
           })
     }
 
     handleYearInput = (event) => {
         console.log(event.target.value)
         this.setState({
-            movieName: event.target.value
+            movieYear: event.target.value
           })
     }
 
     handleRatingInput = (event) => {
         console.log(event.target.value)
         this.setState({
-            movieName: event.target.value
+            movieRating: event.target.value
           })
     }
 
     render () {
         return (
             <div className="Edit">
-            <input type="text" placeholder="movie name" onChange={this.handleNameInput.bind(this)}/>
-            <input type="text" placeholder="director" onChange={this.handleDirectorInput.bind(this)}/>
-            <input type="text" placeholder="year" onChange={this.handleYearInput.bind(this)}/>
-            <input type="text" placeholder="rating" onChange={this.handleRatingInput.bind(this)}/>
+            <form onSubmit={this.handleSubmit}>
+                <input type="text" placeholder="movie name" onChange={this.handleNameInput}/>
+                <input type="text" placeholder="director" onChange={this.handleDirectorInput}/>
+                <input type="text" placeholder="year" onChange={this.handleYearInput}/>
+                <input type="text" placeholder="rating" onChange={this.handleRatingInput}/>
+                <button type="submit">Submit!!!</button>
+            </form>
           </div>   
         )
     }

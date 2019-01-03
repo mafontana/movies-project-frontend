@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import './App.css';
-import Home from "./components/Home";
-import Index from "./components/Index";
-import Edit from "./components/Edit";
+import React, { Component } from 'react'
+import './App.css'
+import axios from 'axios'
+import Home from "./components/Home"
+import Index from "./components/Index"
+import Edit from "./components/Edit"
 
 
 class App extends Component {
@@ -23,7 +24,9 @@ class App extends Component {
     console.log("movies", this.state.movies);
   } 
   
- handleClickEdit = (movie) => {
+ 
+ 
+  handleClickEdit = (movie) => {
   console.log(movie)
   this.setState({
     selectedMovie: movie
@@ -39,11 +42,11 @@ class App extends Component {
     return (
       <div className="App">
         <Home />
+        <Edit handleClickEdit={this.handleClickEdit} 
+              selectedMovie={this.state.selectedMovie}/>
         <Index
         movieTitles={this.state.movies}
         handleClickEdit={this.handleClickEdit}/>
-        <Edit handleClickEdit={this.handleClickEdit} 
-              selectedMovie={this.state.selectedMovie}/>
       </div>
     );
   }
