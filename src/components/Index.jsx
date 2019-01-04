@@ -3,7 +3,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import Edit from "./Edit"
 
 class Index extends Component {
-
+   
 
     render() {
 
@@ -16,7 +16,7 @@ class Index extends Component {
               <td>{movie.my_rating}</td>
               <td><img src={movie.poster_url} /></td>
               <td><button>Delete Movie</button></td>
-              <td><button onClick={this.props.handleClickEdit.bind(this, movie)}>Edit</button></td>
+              <td><button onClick={this.props.handleClickEdit}>Edit</button></td>
           </tr>
   )
 
@@ -46,3 +46,5 @@ class Index extends Component {
   }
   
   export default Index;
+
+  //<td><button onClick={this.props.handleClickEdit.bind(this, movie)}>Edit</button></td>

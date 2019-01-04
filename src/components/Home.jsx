@@ -13,6 +13,8 @@ class Home extends Component {
                 <h1>Welcome to Lambchop's Movie Ratings!</h1>
               </div>
           </div>
+          <button id="homeButton">Click to see Lambchop's Favorite Movies!</button>
+          
         </div>
       );
     }

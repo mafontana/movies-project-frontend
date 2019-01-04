@@ -84,8 +84,6 @@ img {
   }
 }
 
-
-
 .tableData:hover {
   transform: scale(1.2);
   background-color: #4BA2BD;
@@ -114,5 +112,23 @@ th, td {
 th {
   font-size: 40px;
 }
+
+#homeButton {
+  background-color: #FCBD8C;
+  position: relative;
+  border: none;
+  font-size: 18px;
+  color: #253642;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition: 0.5s;
+}
+
+#homeButton:hover {
+  background-color: #FFD7A6;
+  color: #4BA2BD;
+}
+
 
 
