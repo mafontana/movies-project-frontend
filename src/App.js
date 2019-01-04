@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: [],
+      movies: null,
       selectedMovie: {}
     }
   }
@@ -36,21 +36,16 @@ class App extends Component {
 
   render() {
 
-    const movieTitles = this.state.movies.map(movie => movie.title)
-    console.log("all movies", movieTitles)
-
-
     return (
       <Router>
         <div>
           <Route path="/" component={Home} exact />
           <Route path="/edit" component={Edit} />
-          {this.state.movies ? <Route exact path="/index" render={() => <Index movieTitles={ this.state.movies }/>}/> : null}
+          {this.state.movies ? <Route exact path="/index" render={() => <Index movieTitles={this.state.movies }/>}/> : null}
         </div>
       </Router>
       
      
-      
     );
   }
 }
