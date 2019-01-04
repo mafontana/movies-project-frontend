@@ -65,6 +65,7 @@ class Edit extends Component {
     render () {
         return (
             <div className="Edit">
+            {this.props.selectedMovie}
             <form onSubmit={this.handleSubmit}>
                 <input type="text" placeholder="movie name" onChange={this.handleNameInput}/>
                 <input type="text" placeholder="director" onChange={this.handleDirectorInput}/>
@@ -72,6 +73,7 @@ class Edit extends Component {
                 <input type="text" placeholder="rating" onChange={this.handleRatingInput}/>
                 <button type="submit">Submit!!!</button>
             </form>
+            {this.props.selectedMovie}
           </div>   
         )
     }

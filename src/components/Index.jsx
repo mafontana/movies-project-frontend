@@ -1,24 +1,22 @@
 import React, { Component } from 'react'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Edit from "./Edit"
 
 class Index extends Component {
-   
+
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //       selectedMovie: {}
+    //     }
+    //   }
+
 
     render() {
 
 
-    const movies = this.props.movieTitles.map(movie => 
-          <tr className="tableData">
-              <td>{movie.title}</td>
-              <td>{movie.director}</td>
-              <td>{movie.year}</td>
-              <td>{movie.my_rating}</td>
-              <td><img src={movie.poster_url} /></td>
-              <td><button>Delete Movie</button></td>
-              <td><button onClick={this.props.handleClickEdit}>Edit</button></td>
-          </tr>
-  )
+
+
 
 
       return (
@@ -35,10 +33,10 @@ class Index extends Component {
                         <th>Rating</th>
                     </tr>
 
-                    {movies}
+                   {this.props.movieTable}
                 </table>
             </div>
-
+            
 
             </div>
       );
@@ -47,4 +45,19 @@ class Index extends Component {
   
   export default Index;
 
-  //<td><button onClick={this.props.handleClickEdit.bind(this, movie)}>Edit</button></td>
+
+
+//   <Router>
+//                 <Route exact path="/edit" render={(routeProps) => <Edit {...routeProps} selectedMovie={this.state.selectedMovie }/>}/>
+//             </Router>
+  
+
+
+//<td><button onClick={this.props.handleClickEdit.bind(this, movie)}>Edit</button></td>
+
+//   <Router>
+          
+      
+//   {this.state.selectedMovie ? <Route exact path="/edit" render={() => <Edit selectedMovie={this.state.selectedMovie }/>}/> : null}
+
+// </Router>
