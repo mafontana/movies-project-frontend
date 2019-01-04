@@ -12,7 +12,8 @@ class App extends Component {
     super(props);
     this.state = {
       movies: [],
-      selectedMovie: {}
+      selectedMovie: {},
+      movieSelected: true
     
     }
   }
@@ -29,14 +30,16 @@ class App extends Component {
   handleClickEdit = (movie) => {
     console.log(movie)
     this.setState({
-      selectedMovie: movie
+      selectedMovie: movie,
+      movieSelected: !this.state.movieSelected
     })
     console.log("you clikced edit")
    }
  
 
   render() {
-
+    const selectedMovieTitle = this.state.selectedMovie.title
+    
     const movieTable = this.state.movies.map(movie => 
       <tr className="tableData">
           <td>{movie.title}</td>
@@ -45,7 +48,7 @@ class App extends Component {
           <td>{movie.my_rating}</td>
           <td><img src={movie.poster_url} /></td>
           <td><button>Delete Movie</button></td>
-          <td><button onClick={this.handleClickEdit.bind(this, movie)}>Edit</button></td>
+          <td><button onClick={this.handleClickEdit.bind(this, movie)}><a href="/edit">Edit</a></button></td>
       </tr>
 )
 
@@ -55,8 +58,8 @@ class App extends Component {
       <Router>
         <div>
           <Route path="/" component={Home} exact />
-          <Route exact path="/edit" component={Edit} render={(routeProps) => <Edit {...routeProps} selectedMovie={this.state.selectedMovie}/>} />
-          <Route exact path="/index" render={(routeProps) => <Index {...routeProps} movieTable={movieTable}/>}/>
+          <Route exact path="/edit" render={(routeProps) => <Edit {...routeProps} selectedMovie={selectedMovieTitle}/>} />
+          <Route exact path="/index" render={(routeProps) => <Index {...routeProps} movieTable={movieTable}/>}/> 
         </div>
       </Router>
       
@@ -66,6 +69,15 @@ class App extends Component {
 }
 
 export default App;
+
+
+// <Route exact path="/index" render={(routeProps) => 
+//   this.state.movieSelected ? <Index {...routeProps} movieTable={movieTable}/> : <Edit {...routeProps} selectedMovie={selectedMovie} />}/> 
+
+
+
+
+
 // <Route exact path="/edit" component={Edit} render={() => <Edit selectedMovie={this.state.selectedMovie}/>} />
 
 
