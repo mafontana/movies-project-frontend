@@ -4,6 +4,7 @@ import axios from 'axios'
 import Home from "./components/Home"
 import Index from "./components/Index"
 import Edit from "./components/Edit"
+import { BrowserRouter, Route} from 'react-router-dom'
 
 
 class App extends Component {
@@ -40,14 +41,19 @@ class App extends Component {
 
 
     return (
-      <div className="App">
-        <Home />
-        <Edit handleClickEdit={this.handleClickEdit} 
-              selectedMovie={this.state.selectedMovie}/>
-        <Index
-        movieTitles={this.state.movies}
-        handleClickEdit={this.handleClickEdit}/>
+      <div>
+      <BrowserRouter>
+        <div>
+          <Route path="/" component={Home} />
+          <Route path="/edit" component={Edit} />
+          <Route path="/index" component={Index} />
+        </div>
+      </BrowserRouter>
+      
+        
+        
       </div>
+      
     );
   }
 }
@@ -55,5 +61,12 @@ class App extends Component {
 export default App;
 
 
-
+// <div className="App">
+// <Home />
+// <Edit handleClickEdit={this.handleClickEdit} 
+//       selectedMovie={this.state.selectedMovie}/>
+// <Index
+// movieTitles={this.state.movies}
+// handleClickEdit={this.handleClickEdit}/>
+// </div>
 

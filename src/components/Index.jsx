@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import Edit from "./Edit"
 
 class Index extends Component {
 
@@ -37,7 +38,6 @@ class Index extends Component {
                     {movies}
                 </table>
             </div>
-        
 
 
             </div>

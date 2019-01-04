@@ -10,7 +10,7 @@ class Home extends Component {
           <div className="rightSideBox">
               <img id="LambPic" src={require("../LambchopCartoon.png")}></img>
               <div className="text">
-              <h1>Welcome to Lambchop's Movie Ratings!</h1>
+                <h1>Welcome to Lambchop's Movie Ratings!</h1>
               </div>
           </div>
         </div>
