@@ -9,7 +9,8 @@ class Edit extends Component {
           movieName: "",
           movieDirector: "",
           movieYear: 0,
-          movieRating: 0
+          movieRating: 0,
+          
         }
         this.handleNameInput = this.handleNameInput.bind(this)
      
@@ -28,11 +29,12 @@ class Edit extends Component {
                 year: this.state.movieYear,
                 my_rating: this.state.movieRating,
                 poster_url: ""
-  })
-})
+                })
+            })
             console.log("you submit the form")
     }
 
+    
 
     handleNameInput = (event) => {
         console.log(event.target.value)
@@ -67,12 +69,12 @@ class Edit extends Component {
             <div className="Edit">
             <div></div>
             <form onSubmit={this.handleSubmit}>
-                <input type="text" placeholder="movie name" onChange={this.handleNameInput}/>
-                <input type="text" placeholder="director" onChange={this.handleDirectorInput}/>
-                <input type="text" placeholder="year" onChange={this.handleYearInput}/>
-                <input type="text" placeholder="rating" onChange={this.handleRatingInput}/>
-                <button type="submit">Submit!!!</button>
-                {this.props.selectedMovie}
+                <input type="text" placeholder="movie name" onChange={this.props.handleNameInput}/>
+                <input type="text" placeholder="director" onChange={this.props.handleDirectorInput}/>
+                <input type="text" placeholder="year" onChange={this.props.handleYearInput}/>
+                <input type="text" placeholder="rating" onChange={this.props.handleRatingInput}/>
+                <button  type="submit">Submit!!!</button>
+               
             </form>
           </div>   
         )

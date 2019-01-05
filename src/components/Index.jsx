@@ -4,12 +4,7 @@ import Edit from "./Edit"
 
 class Index extends Component {
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //       selectedMovie: {}
-    //     }
-    //   }
+
 
 
     render() {
@@ -26,14 +21,18 @@ class Index extends Component {
             </div>
           <div className="tableDiv">
                 <table>
-                    <tr>
-                        <th>Title</th>
-                        <th>Director</th>
-                        <th>Year</th>
-                        <th>Rating</th>
-                    </tr>
-
+                    <thead>
+                       <tr>
+                            <th>Title</th>
+                            <th>Director</th>
+                            <th>Year</th>
+                            <th>Rating</th>
+                        </tr>
+                        
+                    </thead>
+                <tbody>
                    {this.props.movieTable}
+                </tbody>
                 </table>
             </div>
             

@@ -4,6 +4,7 @@ import axios from 'axios'
 import Home from "./components/Home"
 import Index from "./components/Index"
 import Edit from "./components/Edit"
+import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
@@ -13,7 +14,8 @@ class App extends Component {
     this.state = {
       movies: [],
       selectedMovie: {},
-      movieSelected: true
+      movieSelected: true,
+      movieById: []
     
     }
   }
@@ -27,29 +29,54 @@ class App extends Component {
     console.log("movies", this.state.movies);
   } 
   
-  handleClickEdit = (movie) => {
-    console.log(movie)
-    this.setState({
-      selectedMovie: movie,
-      movieSelected: !this.state.movieSelected
-    })
-    console.log("you clikced edit")
-   }
+  handleIdRequest = (event) => {
+      event.preventDefault()
+      console.log("event id:", event.target.id)
+ 
+    fetch(`https://movies-project-maf.herokuapp.com/${event.target.id}`)
+      .then(result => result.json()) 
+      .then((response) => {
+        this.setState({
+            movieById: response
+        })
+      })
+      
+
+
+
+        console.log("you hit the request by id");
+      } 
+
+
+  // handleClickEdit = (movie) => {
+  //   console.log(movie)
+  //   this.setState({
+  //     selectedMovie: movie,
+  //     movieSelected: !this.state.movieSelected
+  //   })
+  //   console.log("you clikced edit")
+  //  }
  
 
   render() {
     const selectedMovieTitle = this.state.selectedMovie.title
+
+    // const movieById = this.state.movieById
     
     const movieTable = this.state.movies.map(movie => 
-      <tr className="tableData">
-          <td>{movie.title}</td>
-          <td>{movie.director}</td>
-          <td>{movie.year}</td>
-          <td>{movie.my_rating}</td>
-          <td><img src={movie.poster_url} /></td>
-          <td><button>Delete Movie</button></td>
-          <td><button onClick={this.handleClickEdit.bind(this, movie)}><a href="/edit">Edit</a></button></td>
-      </tr>
+      
+        <tr key={movie.id} className="tableData">
+            <td>{movie.title}</td>
+            <td>{movie.director}</td>
+            <td>{movie.year}</td>
+            <td>{movie.my_rating}</td>
+            <td><img src={movie.poster_url} /></td>
+            <td><button>Delete Movie</button></td>
+            <td>
+                <button onClick={this.handleIdRequest}><a id={movie.id} href="/edit">Edit</a></button>
+            </td>
+        </tr>
+     
 )
 
 
@@ -57,9 +84,9 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route path="/" component={Home} exact />
-          <Route exact path="/edit" render={(routeProps) => <Edit {...routeProps} selectedMovie={selectedMovieTitle}/>} />
-          <Route exact path="/index" render={(routeProps) => <Index {...routeProps} movieTable={movieTable}/>}/> 
+          <Route exact path="/" component={Home} exact />
+          <Route path="/edit" render={(routeProps) => <Edit {...routeProps} selectedMovie={selectedMovieTitle} />} />
+          <Route path="/index" render={(routeProps) => <Index {...routeProps} movieTable={movieTable}/>}/> 
         </div>
       </Router>
       
@@ -69,6 +96,8 @@ class App extends Component {
 }
 
 export default App;
+
+//handleClickEdit={this.handleClickEdit}
 
 
 // <Route exact path="/index" render={(routeProps) => 
