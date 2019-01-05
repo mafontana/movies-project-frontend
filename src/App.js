@@ -4,8 +4,7 @@ import axios from 'axios'
 import Home from "./components/Home"
 import Index from "./components/Index"
 import Edit from "./components/Edit"
-import { Link } from 'react-router-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 
 class App extends Component {
@@ -44,7 +43,8 @@ class App extends Component {
 
 
 
-        console.log("you hit the request by id");
+        console.log("you hit the request by id")
+        console.log(this.state.movieById)
       } 
 
 
@@ -61,7 +61,15 @@ class App extends Component {
   render() {
     const selectedMovieTitle = this.state.selectedMovie.title
 
-    // const movieById = this.state.movieById
+    const movieById = this.state.movieById.map(movie => 
+      <div>
+        <div>{movie.title}</div> 
+        <div>{movie.director}</div>
+        <div>{movie.year}</div>
+        <div>{movie.my_rating}</div>
+        <div><img src={movie.poster_url}></img></div>
+      </div>
+      )
     
     const movieTable = this.state.movies.map(movie => 
       
@@ -73,7 +81,7 @@ class App extends Component {
             <td><img src={movie.poster_url} /></td>
             <td><button>Delete Movie</button></td>
             <td>
-                <button onClick={this.handleIdRequest}><a id={movie.id} href="/edit">Edit</a></button>
+                <button onClick={this.handleIdRequest}><Link to="/edit" id={movie.id} className="edit-button">Edit</Link></button>
             </td>
         </tr>
      
@@ -85,7 +93,7 @@ class App extends Component {
       <Router>
         <div>
           <Route exact path="/" component={Home} exact />
-          <Route path="/edit" render={(routeProps) => <Edit {...routeProps} selectedMovie={selectedMovieTitle} />} />
+          <Route path="/edit" render={(routeProps) => <Edit {...routeProps} selectedMovie={selectedMovieTitle} movieById={movieById}/>} />
           <Route path="/index" render={(routeProps) => <Index {...routeProps} movieTable={movieTable}/>}/> 
         </div>
       </Router>
