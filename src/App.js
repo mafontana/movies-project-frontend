@@ -4,6 +4,7 @@ import axios from 'axios'
 import Home from "./components/Home"
 import Index from "./components/Index"
 import Edit from "./components/Edit"
+import AddMovie from "./components/AddMovie"
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 
@@ -40,8 +41,6 @@ class App extends Component {
         })
       })
       
-
-
 
         console.log("you hit the request by id")
         console.log(this.state.movieById)
@@ -95,6 +94,7 @@ class App extends Component {
           <Route exact path="/" component={Home} exact />
           <Route path="/edit" render={(routeProps) => <Edit {...routeProps} selectedMovie={selectedMovieTitle} movieById={movieById}/>} />
           <Route path="/index" render={(routeProps) => <Index {...routeProps} movieTable={movieTable}/>}/> 
+          <Route path="/addMovie" render={(routeProps) => <AddMovie {...routeProps} movieTable={movieTable}/>}/> 
         </div>
       </Router>
       

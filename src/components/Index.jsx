@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import Edit from "./Edit"
 
 class Index extends Component {
@@ -35,7 +35,7 @@ class Index extends Component {
                 </tbody>
                 </table>
             </div>
-            
+            <button><Link to="/addMovie" className="addMovieButton">Add New Movie</Link></button>
 
             </div>
       );
