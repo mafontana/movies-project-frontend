@@ -39,7 +39,7 @@ class App extends Component {
       .then(result => result.json()) 
       .then((response) => {
         this.setState({
-            movieById: response,
+            movieById: response
             
         })
       })

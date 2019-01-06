@@ -63,7 +63,6 @@ handleRatingInput = (event) => {
 }
   
   
-  
   render() {
       return (
         <div className="AddMovie">

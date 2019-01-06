@@ -75,7 +75,7 @@ class Edit extends Component {
 
         return (
             <div className="Edit">
-           {this.props.movieId}
+           {this.props.movieById}
             <form onSubmit={this.handleSubmit}>
                 <input type="text" placeholder="movie name" onChange={this.handleNameInput}/>
                 <input type="text" placeholder="director" onChange={this.handleDirectorInput}/>
