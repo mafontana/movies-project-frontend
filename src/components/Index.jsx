@@ -4,16 +4,7 @@ import Edit from "./Edit"
 
 class Index extends Component {
 
-
-
-
     render() {
-
-
-
-
-
-
       return (
         <div className="Index">
             <div className="indexHeader">

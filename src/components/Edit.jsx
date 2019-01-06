@@ -10,16 +10,18 @@ class Edit extends Component {
           movieDirector: "",
           movieYear: 0,
           movieRating: 0,
+          movieId: 0
           
         }
         this.handleNameInput = this.handleNameInput.bind(this)
      
       }
+
     
     handleSubmit = (event) => {
         event.preventDefault()
-        fetch('https://movies-project-maf.herokuapp.com/', {
-            method: 'POST',
+        fetch(`https://movies-project-maf.herokuapp.com/${this.props.movieId}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json',
             },
@@ -31,7 +33,7 @@ class Edit extends Component {
                 poster_url: ""
                 })
             })
-            console.log("you submit the form")
+            console.log("you submit the PUT request")
     }
 
     
@@ -66,9 +68,14 @@ class Edit extends Component {
 
 
     render () {
+
+
+ 
+
+
         return (
             <div className="Edit">
-           
+           {this.props.movieId}
             <form onSubmit={this.handleSubmit}>
                 <input type="text" placeholder="movie name" onChange={this.handleNameInput}/>
                 <input type="text" placeholder="director" onChange={this.handleDirectorInput}/>

@@ -15,7 +15,8 @@ class App extends Component {
       movies: [],
       selectedMovie: {},
       movieSelected: true,
-      movieById: []
+      movieById: [],
+      movieId: 0
     
     }
   }
@@ -32,18 +33,24 @@ class App extends Component {
   handleIdRequest = (event) => {
       event.preventDefault()
       console.log("event id:", event.target.id)
+      const clickedMovieId = event.target.id
  
     fetch(`https://movies-project-maf.herokuapp.com/${event.target.id}`)
       .then(result => result.json()) 
       .then((response) => {
         this.setState({
-            movieById: response
+            movieById: response,
+            
         })
       })
       
 
         console.log("you hit the request by id")
         console.log(this.state.movieById)
+        this.setState({
+          movieId: clickedMovieId
+      })
+     
       } 
 
 
@@ -86,15 +93,17 @@ class App extends Component {
      
 )
 
+const movieId = this.state.movieId
+
 
 
     return (
       <Router>
         <div>
           <Route exact path="/" component={Home} exact />
-          <Route path="/edit" render={(routeProps) => <Edit {...routeProps} selectedMovie={selectedMovieTitle} movieById={movieById}/>} />
+          <Route path="/edit" render={(routeProps) => <Edit {...routeProps} selectedMovie={selectedMovieTitle} movieById={movieById} movieId={movieId}/>} />
           <Route path="/index" render={(routeProps) => <Index {...routeProps} movieTable={movieTable}/>}/> 
-          <Route path="/addMovie" render={(routeProps) => <AddMovie {...routeProps} movieTable={movieTable}/>}/> 
+          <Route path="/addMovie" render={(routeProps) => <AddMovie {...routeProps}/>}/> 
         </div>
       </Router>
       
