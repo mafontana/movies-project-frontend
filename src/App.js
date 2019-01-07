@@ -50,19 +50,21 @@ class App extends Component {
         this.setState({
           movieId: clickedMovieId
       })
-     
-      } 
+    } 
 
-
-  // handleClickEdit = (movie) => {
-  //   console.log(movie)
-  //   this.setState({
-  //     selectedMovie: movie,
-  //     movieSelected: !this.state.movieSelected
-  //   })
-  //   console.log("you clikced edit")
-  //  }
- 
+    deleteMovie = (event) => {
+      fetch(`https://movies-project-maf.herokuapp.com/${event.target.id}`, {
+        method: "DELETE",
+      })
+      let movies = this.state.movies.filter(movie => {
+        return movie.id !== event.target.id
+      })
+      this.setState({
+        movies: movies
+      })
+      console.log("you clicked delete")
+      console.log("event id:", event.target.id)
+    }
 
   render() {
     const selectedMovieTitle = this.state.selectedMovie.title
@@ -85,7 +87,7 @@ class App extends Component {
             <td>{movie.year}</td>
             <td>{movie.my_rating}</td>
             <td><img src={movie.poster_url} /></td>
-            <td><button>Delete Movie</button></td>
+            <td><button onClick={this.deleteMovie} id={movie.id}>Delete Movie</button></td>
             <td>
                 <button onClick={this.handleIdRequest}><Link to="/edit" id={movie.id} className="edit-button">Edit</Link></button>
             </td>

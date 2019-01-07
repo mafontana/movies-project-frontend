@@ -68,11 +68,6 @@ class Edit extends Component {
 
 
     render () {
-
-
- 
-
-
         return (
             <div className="Edit">
            {this.props.movieById}
