@@ -14,8 +14,9 @@ class App extends Component {
       movies: [],
       selectedMovie: {},
       movieById: [],
-      movieId: 0
-    
+      movieId: 0,
+      addMovieMessage: "",
+      newMoviePosted: true
     }
   }
   
@@ -58,6 +59,14 @@ class App extends Component {
       })
     }
 
+    handleAddMovieMessage = () => {
+      console.log("handle movie message")
+      this.setState({
+        addMovieMessage: "You submit a new movie!",
+        newMoviePosted: !this.state.newMoviePosted
+      })
+    }
+
   render() {
     const selectedMovieTitle = this.state.selectedMovie.title
 
@@ -93,7 +102,10 @@ const movieId = this.state.movieId
           <Route exact path="/" component={Home} exact />
           <Route path="/edit" render={(routeProps) => <Edit {...routeProps} selectedMovie={selectedMovieTitle} movieById={movieById} movieId={movieId}/>} />
           <Route path="/index" render={(routeProps) => <Index {...routeProps} movieTable={movieTable}/>}/> 
-          <Route path="/addMovie" render={(routeProps) => <AddMovie {...routeProps}/>}/> 
+          <Route path="/addMovie" render={(props) => <AddMovie {...props}
+                  handleAddMovieMessage={this.handleAddMovieMessage} 
+                  {...this.state} addMovieMessage={this.state.addMovieMessage}
+                  {...this.state} newMoviePosted={this.state.newMoviePosted}/>}/> 
         </div>
       </Router>
     )
@@ -101,3 +113,14 @@ const movieId = this.state.movieId
 }
 
 export default App;
+
+
+// <div className="postAndMovieCont">
+// <Route path="/deleted" render={() => <Deleted/>}/>
+// <Route path="/added" render={() => <Added/>}/>
+// <Route path="/movies" render={() => <Movies searched={this.state.searched}/>}/>
+// <Route path="/post" render={() => <Post rateMovie={this.rateMovie} handelInput={this.handelInput} />}/>
+// <Route path="/newMovie/id/:id" render={(props) => <NewMovie selectMovie={this.selectMovie} deleteMovie={this.deleteMovie} {...props} {...this.state} searched={this.state.searched} rateMovie={this.rateMovie} deleteReview={this.deleteReview} handelInput={this.handelInput} />}/>
+// <Route path="/addMovie" render={() => <AddMovie addMovie={this.addMovie} handelInput={this.handelInput} />}/>
+// <Route path="/editMovie/:id" render={() => <EditMovie editMovie={this.editMovie} handelInput={this.handelInput} />}/>
+// </div>
