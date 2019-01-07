@@ -130,5 +130,91 @@ th {
   color: #4BA2BD;
 }
 
+.addMovie , form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
+/* form {
+  display: flex;
+  align-items: center;
+  flex-direction: column
+} */
 
+#message_1 {
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#message_2 {
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+input[type=text] {
+  border: 2px solid #4BA2BD;
+  border-radius: 4px;
+  margin: 5px;
+  height: 20px;
+  width: 200px;
+  outline: none;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+ 
+  background: #4BA2BD;
+  color: white;
+  width: 100%;
+}
+
+form {
+  margin-top: 20px;
+}
+
+button {
+  border: 2px solid #4BA2BD;
+  border-radius: 4px;
+  margin-top: 20px;
+  transition: 0.5s;
+  width: 100px;
+  height: 40px;
+  outline: none;
+}
+
+button:hover {
+  border: 2px solid grey;
+  transform: scale(1.2);
+  background: #4BA2BD;
+  color: white;
+  outline: none;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.editButton {
+  border: 3px solid grey;
+  color: black;
+}
+
+.editButton:hover {
+  border: 3px solid grey;
+  background: white;
+  color: black;
+  transform: scale(1.05);
+}
+
+.deleteButton {
+  border: 3px solid red;
+  color: black;
+}
+
+.deleteButton:hover {
+  border: 3px solid red;
+  background: white;
+  color: black;
+  transform: scale(1.05);
+}

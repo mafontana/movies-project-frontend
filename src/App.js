@@ -87,10 +87,11 @@ class App extends Component {
           <td>{movie.year}</td>
           <td>{movie.my_rating}</td>
           <td><img src={movie.poster_url} /></td>
-          <td><button onClick={this.deleteMovie} id={movie.id}>Delete Movie</button></td>
           <td>
-            <button onClick={this.handleIdRequest}><Link to="/edit" id={movie.id} className="edit-button">Edit</Link></button>
+            <button onClick={this.handleIdRequest} className="editButton"><Link to="/edit" id={movie.id} className="edit-button">Edit</Link></button>
           </td>
+          <td><button onClick={this.deleteMovie} id={movie.id} className="deleteButton">Delete Movie</button></td>
+          
         </tr>
         )
 
@@ -105,7 +106,7 @@ const movieId = this.state.movieId
           <Route path="/addMovie" render={(props) => <AddMovie {...props}
                   handleAddMovieMessage={this.handleAddMovieMessage} 
                   {...this.state} addMovieMessage={this.state.addMovieMessage}
-                  {...this.state} newMoviePosted={this.state.newMoviePosted}/>}/> 
+                  newMoviePosted={this.state.newMoviePosted}/>}/> 
         </div>
       </Router>
     )
@@ -115,12 +116,3 @@ const movieId = this.state.movieId
 export default App;
 
 
-// <div className="postAndMovieCont">
-// <Route path="/deleted" render={() => <Deleted/>}/>
-// <Route path="/added" render={() => <Added/>}/>
-// <Route path="/movies" render={() => <Movies searched={this.state.searched}/>}/>
-// <Route path="/post" render={() => <Post rateMovie={this.rateMovie} handelInput={this.handelInput} />}/>
-// <Route path="/newMovie/id/:id" render={(props) => <NewMovie selectMovie={this.selectMovie} deleteMovie={this.deleteMovie} {...props} {...this.state} searched={this.state.searched} rateMovie={this.rateMovie} deleteReview={this.deleteReview} handelInput={this.handelInput} />}/>
-// <Route path="/addMovie" render={() => <AddMovie addMovie={this.addMovie} handelInput={this.handelInput} />}/>
-// <Route path="/editMovie/:id" render={() => <EditMovie editMovie={this.editMovie} handelInput={this.handelInput} />}/>
-// </div>
