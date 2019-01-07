@@ -10,6 +10,7 @@ class AddMovie extends Component {
       movieDirector: "",
       movieYear: 0,
       movieRating: 0,
+      posterUrl: ""
       
     }
     this.handleNameInput = this.handleNameInput.bind(this)
@@ -28,7 +29,7 @@ class AddMovie extends Component {
             director: this.state.movieDirector,
             year: this.state.movieYear,
             my_rating: this.state.movieRating,
-            poster_url: ""
+            poster_url: this.state.posterUrl
             })
         })
         console.log("you submit the form")
@@ -61,7 +62,13 @@ handleRatingInput = (event) => {
         movieRating: event.target.value
       })
 }
-  
+
+handlePosterUrlInput = (event) => {
+  console.log(event.target.value)
+  this.setState({
+      posterUrl: event.target.value
+    })
+}
   
   render() {
       return (
@@ -73,6 +80,7 @@ handleRatingInput = (event) => {
                 <input type="text" placeholder="director" onChange={this.handleDirectorInput}/>
                 <input type="text" placeholder="year" onChange={this.handleYearInput}/>
                 <input type="text" placeholder="rating" onChange={this.handleRatingInput}/>
+                <input type="text" placeholder="poster URL" onChange={this.handlePosterUrlInput}/>
                 <button  type="submit">Submit!!!</button>
                
             </form>

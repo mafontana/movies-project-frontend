@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './App.css'
-import axios from 'axios'
 import Home from "./components/Home"
 import Index from "./components/Index"
 import Edit from "./components/Edit"
@@ -14,7 +13,6 @@ class App extends Component {
     this.state = {
       movies: [],
       selectedMovie: {},
-      movieSelected: true,
       movieById: [],
       movieId: 0
     
@@ -43,10 +41,6 @@ class App extends Component {
             
         })
       })
-      
-
-        console.log("you hit the request by id")
-        console.log(this.state.movieById)
         this.setState({
           movieId: clickedMovieId
       })
@@ -62,8 +56,6 @@ class App extends Component {
       this.setState({
         movies: movies
       })
-      console.log("you clicked delete")
-      console.log("event id:", event.target.id)
     }
 
   render() {
@@ -80,24 +72,20 @@ class App extends Component {
       )
     
     const movieTable = this.state.movies.map(movie => 
-      
         <tr key={movie.id} className="tableData">
-            <td>{movie.title}</td>
-            <td>{movie.director}</td>
-            <td>{movie.year}</td>
-            <td>{movie.my_rating}</td>
-            <td><img src={movie.poster_url} /></td>
-            <td><button onClick={this.deleteMovie} id={movie.id}>Delete Movie</button></td>
-            <td>
-                <button onClick={this.handleIdRequest}><Link to="/edit" id={movie.id} className="edit-button">Edit</Link></button>
-            </td>
+          <td>{movie.title}</td>
+          <td>{movie.director}</td>
+          <td>{movie.year}</td>
+          <td>{movie.my_rating}</td>
+          <td><img src={movie.poster_url} /></td>
+          <td><button onClick={this.deleteMovie} id={movie.id}>Delete Movie</button></td>
+          <td>
+            <button onClick={this.handleIdRequest}><Link to="/edit" id={movie.id} className="edit-button">Edit</Link></button>
+          </td>
         </tr>
-     
-)
+        )
 
 const movieId = this.state.movieId
-
-
 
     return (
       <Router>
@@ -108,51 +96,8 @@ const movieId = this.state.movieId
           <Route path="/addMovie" render={(routeProps) => <AddMovie {...routeProps}/>}/> 
         </div>
       </Router>
-      
-     
-    );
+    )
   }
 }
 
 export default App;
-
-//handleClickEdit={this.handleClickEdit}
-
-
-// <Route exact path="/index" render={(routeProps) => 
-//   this.state.movieSelected ? <Index {...routeProps} movieTable={movieTable}/> : <Edit {...routeProps} selectedMovie={selectedMovie} />}/> 
-
-
-
-
-
-// <Route exact path="/edit" component={Edit} render={() => <Edit selectedMovie={this.state.selectedMovie}/>} />
-
-
-//Original router code...
-// <Router>
-//         <div>
-//           <Route path="/" component={Home} exact />
-//           <Route exact path="/edit" component={Edit} render={(routeProps) => <Edit {...routeProps} selectedMovie={this.state.selectedMovie}/>} />
-//           {this.state.movies ? <Route exact path="/index" render={() => <Index movieTitles={this.state.movies}/>}/> : null}
-//         </div>
-//       </Router>
-
-
-
-
-
-//<Route exact path="/edit" component={Edit} />
-
-
-// <div className="App">
-// <Home />
-// <Edit handleClickEdit={this.handleClickEdit} 
-//       selectedMovie={this.state.selectedMovie}/>
-// <Index
-// movieTitles={this.state.movies}
-// handleClickEdit={this.handleClickEdit}/>
-// </div>
-
-// {this.state.movies ? <Route exact path="/index" render={() => <Index movieTitles={ this.state.movies }/>}/> : null}
-// {this.state.movies ? <Route exact path="/EditMovie" render={() => <EditMovie movie={ this.state.movies }/>}/> : null}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 
-
 class Edit extends Component {
     constructor(props) {
         super(props);
@@ -14,10 +13,8 @@ class Edit extends Component {
           
         }
         this.handleNameInput = this.handleNameInput.bind(this)
-     
       }
 
-    
     handleSubmit = (event) => {
         event.preventDefault()
         fetch(`https://movies-project-maf.herokuapp.com/${this.props.movieId}`, {
@@ -35,8 +32,6 @@ class Edit extends Component {
             })
             console.log("you submit the PUT request")
     }
-
-    
 
     handleNameInput = (event) => {
         console.log(event.target.value)
@@ -66,20 +61,18 @@ class Edit extends Component {
           })
     }
 
-
     render () {
         return (
             <div className="Edit">
-           {this.props.movieById}
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" placeholder="movie name" onChange={this.handleNameInput}/>
-                <input type="text" placeholder="director" onChange={this.handleDirectorInput}/>
-                <input type="text" placeholder="year" onChange={this.handleYearInput}/>
-                <input type="text" placeholder="rating" onChange={this.handleRatingInput}/>
-                <button  type="submit">Submit!!!</button>
-               
-            </form>
-          </div>   
+                {this.props.movieById}
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" placeholder="movie name" onChange={this.handleNameInput}/>
+                    <input type="text" placeholder="director" onChange={this.handleDirectorInput}/>
+                    <input type="text" placeholder="year" onChange={this.handleYearInput}/>
+                    <input type="text" placeholder="rating" onChange={this.handleRatingInput}/>
+                    <button type="submit">Submit!!!</button>
+                </form>
+            </div>   
         )
     }
 }
