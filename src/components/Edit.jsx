@@ -73,7 +73,7 @@ class Edit extends Component {
                     <input type="text" placeholder="movie name" onChange={this.handleNameInput}/>
                     <input type="text" placeholder="director" onChange={this.handleDirectorInput}/>
                     <input type="text" placeholder="year" onChange={this.handleYearInput}/>
-                    <input type="text" placeholder="rating" onChange={this.handleRatingInput}/>
+                    <input type="number" placeholder="rating" name="rating" min="1" max="5" onChange={this.handleRatingInput}/>
                     <button type="submit">Submit!!!</button>
                 </form>
             </div>   

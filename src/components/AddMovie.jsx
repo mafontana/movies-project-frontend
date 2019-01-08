@@ -74,14 +74,14 @@ handlePosterUrlInput = (event) => {
       return (
         <div className="addMovie">
           <div className="movieMessage">
-            {this.props.newMoviePosted ? <h1 id="message_1">Add a new movie!</h1> : <h1 id="message_2">{this.props.addMovieMessage}</h1>}
+            {this.props.newMoviePosted ? <div id="message_1">Add a new movie!</div> : <div id="message_2">{this.props.addMovieMessage}</div>}
           </div>
           <div>{this.props.movieById}</div>
               <form className="newMovieForm" onSubmit={this.handleSubmit}>
                   <input type="text" placeholder="movie name" onChange={this.handleNameInput}/>
                   <input type="text" placeholder="director" onChange={this.handleDirectorInput}/>
                   <input type="text" placeholder="year" onChange={this.handleYearInput}/>
-                  <input type="text" placeholder="rating" onChange={this.handleRatingInput}/>
+                  <input type="text" type="number" placeholder="rating" name="rating" min="1" max="5" onChange={this.handleRatingInput}/>
                   <input type="text" placeholder="poster URL" onChange={this.handlePosterUrlInput}/>
                   <button  type="submit" onClick={this.props.handleAddMovieMessage}>Submit!!!</button>
               </form>

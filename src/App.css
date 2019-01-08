@@ -3,11 +3,11 @@ body {
   font-family: 'Bangers', cursive;
 }
 
-h1 {
+/* h1 {
   color: black;
   margin-top: 0;
   padding: 0;
-}
+} */
 
 #LambPic {
   height: 150px;
@@ -19,12 +19,14 @@ h1 {
 .Home {
 
   height: 300px;
-  width: 1000px;
+  width: 800px;
   margin-left: 15%;
   margin-top: 5%;
   display: flex;
   justify-content: space-between;
   border: 20px solid #4BA2BD;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 #backgroundPic {
@@ -47,10 +49,10 @@ h1 {
 .rightSideBox {
   display: flex;
   margin-left: 0;
-  width: 80%
+  width: 50%
 }
 
-.text {
+div.text {
   width: 60%;
 }
 
@@ -108,14 +110,15 @@ th {
 
 #homeButton {
   background-color: #FCBD8C;
-  position: relative;
   border: none;
-  font-size: 18px;
+  font-size: 10px;
   color: #253642;
-  padding: 20px;
-  width: 200px;
   text-align: center;
   transition: 0.5s;
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  margin-top: 20px;
 }
 
 #homeButton:hover {
@@ -133,15 +136,17 @@ th {
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
+  font-size: 50px;
 }
 
 #message_2 {
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
+  font-size: 50px;
 }
 
-input[type=text] {
+input {
   border: 2px solid #4BA2BD;
   border-radius: 4px;
   margin: 5px;
@@ -152,16 +157,16 @@ input[type=text] {
   transition: 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
+input:focus {
  
   background: #4BA2BD;
   color: white;
   transform: scale(1.2);
 }
 
-input:hover {
+/* input:hover {
   background: lightgrey;
-}
+} */
 
 form {
   margin-top: 10px;
@@ -233,10 +238,24 @@ img.selectedImage {
   width: auto;
 }
 
-div.movieTitle {
+.movieHeaderFont {
   font-size: 80px;
 }
 
+
+
 div.editMovieDetails {
-  font-size: 40px;
+  font-size: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #4BA2BD;
+  font-size: 20px;
+}
+
+Link:visited {
+  color: red;
 }

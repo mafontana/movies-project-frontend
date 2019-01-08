@@ -72,7 +72,7 @@ class App extends Component {
 
     const movieById = this.state.movieById.map(movie => 
       <div className="selectedMovieToEdit">
-        <div className="movieTitle">{movie.title}</div>
+        <div className="movieHeaderFont">{movie.title}</div>
         <div>Director: {movie.director}</div>
         <div>Year: {movie.year}</div>
         <div>Rating: {movie.my_rating}</div>
