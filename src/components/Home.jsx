@@ -8,6 +8,7 @@ class Home extends Component {
       <div>
         <div className="Home">
         
+        
           <img id="backgroundPic" src={require("../movie_video.png")}></img>
           <div className="rightSideBox">
               <img id="LambPic" src={require("../LambchopCartoon.png")}></img>

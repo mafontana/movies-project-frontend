@@ -8,7 +8,7 @@ class Index extends Component {
       return (
         <div className="Index">
             <div className="indexHeader">
-            <h1>Lambchop's Favorite Movies:</h1>
+            Lambchop's Favorite Movies:
             </div>
           <div className="tableDiv">
                 <table>
