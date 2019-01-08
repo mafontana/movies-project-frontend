@@ -71,12 +71,12 @@ class App extends Component {
     const selectedMovieTitle = this.state.selectedMovie.title
 
     const movieById = this.state.movieById.map(movie => 
-      <div>
-        <div>{movie.title}</div> 
-        <div>{movie.director}</div>
-        <div>{movie.year}</div>
-        <div>{movie.my_rating}</div>
-        <div><img src={movie.poster_url}></img></div>
+      <div className="selectedMovieToEdit">
+        <div className="movieTitle">{movie.title}</div>
+        <div>Director: {movie.director}</div>
+        <div>Year: {movie.year}</div>
+        <div>Rating: {movie.my_rating}</div>
+        <div><img src={movie.poster_url} className="selectedImage"></img></div>
       </div>
       )
     

@@ -5,6 +5,8 @@ body {
 
 h1 {
   color: black;
+  margin-top: 0;
+  padding: 0;
 }
 
 #LambPic {
@@ -75,15 +77,6 @@ img {
   background-color: lightgray;
 }
 
-@keyframes tableChange {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.5;
-  }
-}
-
 .tableData:hover {
   transform: scale(1.2);
   background-color: #4BA2BD;
@@ -136,12 +129,6 @@ th {
   flex-direction: column;
 }
 
-/* form {
-  display: flex;
-  align-items: center;
-  flex-direction: column
-} */
-
 #message_1 {
   margin: 0 auto;
   margin-top: 20px;
@@ -169,11 +156,15 @@ input[type=text]:focus {
  
   background: #4BA2BD;
   color: white;
-  width: 100%;
+  transform: scale(1.2);
+}
+
+input:hover {
+  background: lightgrey;
 }
 
 form {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 button {
@@ -217,4 +208,35 @@ button:hover {
   background: white;
   color: black;
   transform: scale(1.05);
+}
+
+.Edit {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.selectedMovieToEdit {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 30px;
+}
+
+.selectedMovie {
+  width: fit-content;
+}
+
+img.selectedImage {
+  height: 300px;
+  width: auto;
+}
+
+div.movieTitle {
+  font-size: 80px;
+}
+
+div.editMovieDetails {
+  font-size: 40px;
 }

@@ -64,7 +64,11 @@ class Edit extends Component {
     render () {
         return (
             <div className="Edit">
-                {this.props.movieById}
+           
+                <div className="selectedMovie">
+                    {this.props.movieById} 
+                </div>
+                <div className="editMovieDetails">Edit movie details:</div>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" placeholder="movie name" onChange={this.handleNameInput}/>
                     <input type="text" placeholder="director" onChange={this.handleDirectorInput}/>
