@@ -18,6 +18,9 @@ class Index extends Component {
                             <th>Director</th>
                             <th>Year</th>
                             <th>Rating</th>
+                            <th>Poster</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                         
                     </thead>
@@ -26,7 +29,9 @@ class Index extends Component {
                 </tbody>
                 </table>
             </div>
-                <button><Link to="/addMovie" className="addMovieButton">Add New Movie</Link></button>
+            <div className="addMovieButtonDiv">
+                <button className="addMovieButton"><Link to="/addMovie">Add New Movie</Link></button>
+            </div>
             </div>
       );
     }

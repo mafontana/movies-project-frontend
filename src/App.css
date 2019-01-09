@@ -37,7 +37,7 @@ body {
 .indexHeader {
   text-align: center;
   font-size: 80px;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 h1 {
@@ -72,12 +72,13 @@ img {
 }
 
 .tableData {
-  transition: 2s;
+  transition: 1.5s;
   background-color: lightgray;
+  font-size: 25px;
 }
 
 .tableData:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   background-color: #4BA2BD;
 }
 
@@ -101,13 +102,18 @@ th, td {
   padding: 15px;
 }
 
+/* td {
+  border-spacing: 20px;
+  border: none;
+} */
+
 th {
   font-size: 40px;
 }
 
-#homeButton {
+button.homeButton {
   background-color: #FCBD8C;
-  border: none;
+  border-radius: 4px;
   font-size: 10px;
   color: #253642;
   text-align: center;
@@ -118,9 +124,10 @@ th {
   margin-top: 20px;
 }
 
-#homeButton:hover {
+button.homeButton:hover {
   background-color: #FFD7A6;
   color: #4BA2BD;
+  transform: scale(1.1);
 }
 
 .addMovie , form {
@@ -169,47 +176,54 @@ form {
   margin-top: 10px;
 }
 
-button {
-  border: 2px solid #4BA2BD;
+button.formButton {
+  background: #4BA2BD;
   border-radius: 4px;
   margin-top: 20px;
   transition: 0.5s;
-  width: 100px;
-  height: 40px;
+  width: fit-content;
   outline: none;
+  font-size: 20px;
+  color: white;
 }
 
-button:hover {
-  border: 2px solid grey;
+button.formButton:hover {
   transform: scale(1.2);
   background: #4BA2BD;
   color: white;
   outline: none;
+  width: fit-content;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-.editButton {
+button.editButton {
   border: 3px solid grey;
+  border-radius: 4px;
   color: black;
 }
 
-.editButton:hover {
+button.editButton:hover {
   border: 3px solid grey;
+  border-radius: 4px;
   background: white;
   color: black;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
-.deleteButton {
+button.deleteButton {
   border: 3px solid red;
+  border-radius: 4px;
   color: black;
+  width: 40px;
+  height: 40px;
 }
 
-.deleteButton:hover {
+button.deleteButton:hover {
   border: 3px solid red;
+  border-radius: 4px;
   background: white;
   color: black;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .Edit {
@@ -239,8 +253,6 @@ img.selectedImage {
   font-size: 80px;
 }
 
-
-
 div.editMovieDetails {
   font-size: 50px;
   margin-top: 20px;
@@ -249,10 +261,45 @@ div.editMovieDetails {
 
 a {
   text-decoration: none;
-  color: #4BA2BD;
+  color: rgb(41, 180, 223);
   font-size: 20px;
 }
 
-Link:visited {
-  color: red;
+button.addMovieButton {
+  border: 2px solid #4BA2BD;
+  border-radius: 4px;
+  transition: 0.5s;
+  width: fit-content;
+  outline: none;
+  margin-right: 30px;
+  display: block;
+  position: fixed;
+  top: 20px;
+  right: 0;
+}
+
+button.addMovieButton:hover {
+  transform: scale(1.1);
+  color: white;
+  outline: none;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+button.backButton {
+  border: 2px solid #4BA2BD;
+  background: white;
+  border-radius: 4px;
+  transition: 0.5s;
+  width: fit-content;
+  outline: none;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: block;
+}
+
+button.backButton:hover {
+  transform: scale(1.1);
+  color: white;
+  outline: none;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }

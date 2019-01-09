@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route, Link } from 'react-router-dom'
 
 
 class Edit extends Component {
@@ -64,7 +65,6 @@ class Edit extends Component {
     render () {
         return (
             <div className="Edit">
-           
                 <div className="selectedMovie">
                     {this.props.movieById} 
                 </div>
@@ -74,8 +74,9 @@ class Edit extends Component {
                     <input type="text" placeholder="director" onChange={this.handleDirectorInput}/>
                     <input type="text" placeholder="year" onChange={this.handleYearInput}/>
                     <input type="number" placeholder="rating" name="rating" min="1" max="5" onChange={this.handleRatingInput}/>
-                    <button type="submit">Submit!!!</button>
+                    <button className="formButton" type="submit">Submit!!!</button>
                 </form>
+                <button className="backButton"><Link className="test" to="/index">Back to Movies</Link></button>
             </div>   
         )
     }

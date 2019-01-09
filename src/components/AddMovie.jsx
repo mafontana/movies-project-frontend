@@ -83,8 +83,9 @@ handlePosterUrlInput = (event) => {
                   <input type="text" placeholder="year" onChange={this.handleYearInput}/>
                   <input type="text" type="number" placeholder="rating" name="rating" min="1" max="5" onChange={this.handleRatingInput}/>
                   <input type="text" placeholder="poster URL" onChange={this.handlePosterUrlInput}/>
-                  <button  type="submit" onClick={this.props.handleAddMovieMessage}>Submit!!!</button>
+                  <button className="formButton" type="submit" onClick={this.props.handleAddMovieMessage}>Submit!!!</button>
               </form>
+              <button className="backButton"><Link className="test" to="/index">Back to Movies</Link></button>
         </div>
       )
     }

@@ -88,10 +88,9 @@ class App extends Component {
           <td>{movie.my_rating}</td>
           <td><img src={movie.poster_url} /></td>
           <td>
-            <button onClick={this.handleIdRequest} className="editButton"><Link to="/edit" id={movie.id} className="edit-button">Edit</Link></button>
+            <button onClick={this.handleIdRequest} className="editButton"><Link to="/edit" id={movie.id}>Edit</Link></button>
           </td>
-          <td><button onClick={this.deleteMovie} id={movie.id} className="deleteButton">Delete Movie</button></td>
-          
+          <td><button onClick={this.deleteMovie} id={movie.id} className="deleteButton"><Link to="/index" id={movie.id} >X</Link></button></td>
         </tr>
         )
 
