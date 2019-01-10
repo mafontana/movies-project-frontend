@@ -18,7 +18,7 @@ class Edit extends Component {
                     <input type="number" placeholder="rating" name="rating" min="1" max="5" onChange={this.props.handleRatingInput}/>
                     <button className="formButton" type="submit">Submit!!!</button>
                 </form>
-                <button className="backButton"><Link className="test" to="/index">Back to Movies</Link></button>
+                <button className="backButton"><Link to="/index">Back to Movies</Link></button>
             </div>   
         )
     }

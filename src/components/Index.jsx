@@ -20,8 +20,7 @@ class Index extends Component {
                             <th>Poster</th>
                             <th>Edit</th>
                             <th>Delete</th>
-                        </tr>
-                        
+                        </tr>    
                     </thead>
                 <tbody>
                    {this.props.movieTable}

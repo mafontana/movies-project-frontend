@@ -26,9 +26,18 @@ class App extends Component {
     }
   }
   
+handleGetRequest = () => {
+  const response = fetch("https://movies-project-maf.herokuapp.com/")
+    const json = response.json();
+    this.setState({
+      movies: json
+    });
+    console.log("you submit a get request", this.state.movies)
+}
+
   async componentDidMount() {
-    const response = await fetch("https://movies-project-maf.herokuapp.com/");
-    const json = await response.json();
+    const response = await fetch("https://movies-project-maf.herokuapp.com/")
+    const json = await response.json()
     this.setState({
       movies: json
     });
@@ -45,7 +54,6 @@ class App extends Component {
       .then((response) => {
         this.setState({
             movieById: response
-            
         })
       })
         this.setState({
@@ -66,11 +74,13 @@ class App extends Component {
     }
 
     handleAddMovieMessage = () => {
+        
       console.log("handle movie message")
       this.setState({
         addMovieMessage: "You submit a new movie!",
         newMoviePosted: !this.state.newMoviePosted
       })
+
     }
 
     handleNameInput = (event) => {
@@ -149,7 +159,7 @@ handleSubmitNewMovie = (event) => {
           })
       })
       console.log("you submit a new movie!")
-     
+      
 }
 
   render() {
@@ -219,7 +229,8 @@ const movieId = this.state.movieId
                 posterURL={this.state.posterURL}
                 handleRatingInput={this.handleRatingInput}
                 movieRating={this.state.movieRating}
-                handleSubmitNewMovie={this.handleSubmitNewMovie}/>}/> 
+                handleSubmitNewMovie={this.handleSubmitNewMovie}/>}
+                handleGetRequest={this.handleGetRequest}/> 
         </div>
       </Router>
     )

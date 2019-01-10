@@ -19,7 +19,7 @@ class AddMovie extends Component {
                   <input type="text" placeholder="poster URL" onChange={this.props.handlePosterUrlInput}/>
                   <button className="formButton" type="submit" onClick={this.props.handleAddMovieMessage}>Submit!!!</button>
               </form>
-              <button className="backButton"><Link to="/index">Back to Movies</Link></button>
+              <button className="backButton"><Link to="/index" >Back to Movies</Link></button>
         </div>
       )
     }
