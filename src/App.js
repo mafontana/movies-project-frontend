@@ -16,7 +16,13 @@ class App extends Component {
       movieById: [],
       movieId: 0,
       addMovieMessage: "",
-      newMoviePosted: true
+      newMoviePosted: true,
+      movieName: "",
+      movieDirector: "",
+      movieYear: 0,
+      movieRating: 0,
+      movieId: 0,
+      posterURL: ""
     }
   }
   
@@ -67,6 +73,85 @@ class App extends Component {
       })
     }
 
+    handleNameInput = (event) => {
+      console.log(event.target.value)
+      this.setState({
+          movieName: event.target.value
+        })
+  }
+
+  handleDirectorInput = (event) => {
+      console.log(event.target.value)
+      this.setState({
+          movieDirector: event.target.value
+        })
+  }
+
+  handleYearInput = (event) => {
+      console.log(event.target.value)
+      this.setState({
+          movieYear: event.target.value
+        })
+  }
+
+  handlePosterUrlInput = (event) => {
+      console.log(event.target.value)
+      this.setState({
+          posterURL: event.target.value
+        })
+  }
+
+  handleDirectorInput = (event) => {
+    console.log(event.target.value)
+    this.setState({
+        movieDirector: event.target.value
+      })
+}
+
+handleRatingInput = (event) => {
+  console.log(event.target.value)
+  this.setState({
+      movieRating: event.target.value
+    })
+}
+
+handleSubmitEditedMovie = (event) => {
+  event.preventDefault()
+  fetch(`https://movies-project-maf.herokuapp.com/${this.state.movieId}`, {
+      method: 'PUT',
+      headers: {
+          'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+          title: this.state.movieName,
+          director: this.state.movieDirector,
+          year: this.state.movieYear,
+          my_rating: this.state.movieRating,
+          poster_url: this.state.posterURL
+          })
+      })
+      console.log("you submit the PUT request")
+}
+
+handleSubmitNewMovie = (event) => {
+  event.preventDefault()
+  fetch('https://movies-project-maf.herokuapp.com/', {
+      method: 'POST',
+      headers: {
+          'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+          title: this.state.movieName,
+          director: this.state.movieDirector,
+          year: this.state.movieYear,
+          my_rating: this.state.movieRating,
+          poster_url: this.state.posterUrl
+          })
+      })
+      console.log("you submit a new movie!")
+     
+}
+
   render() {
     const selectedMovieTitle = this.state.selectedMovie.title
 
@@ -100,12 +185,39 @@ const movieId = this.state.movieId
       <Router>
         <div>
           <Route exact path="/" component={Home} exact />
-          <Route path="/edit" render={(routeProps) => <Edit {...routeProps} selectedMovie={selectedMovieTitle} movieById={movieById} movieId={movieId}/>} />
-          <Route path="/index" render={(routeProps) => <Index {...routeProps} movieTable={movieTable}/>}/> 
-          <Route path="/addMovie" render={(props) => <AddMovie {...props}
-                  handleAddMovieMessage={this.handleAddMovieMessage} 
-                  {...this.state} addMovieMessage={this.state.addMovieMessage}
-                  newMoviePosted={this.state.newMoviePosted}/>}/> 
+          <Route path="/edit" render={(props) => <Edit {...props} {...this.state}
+                selectedMovie={selectedMovieTitle} 
+                movieById={movieById} 
+                movieId={movieId}
+                handleNameInput={this.handleNameInput}
+                movieName={this.state.movieName}
+                handleDirectorInput={this.handleDirectorInput}
+                movieDirector={this.state.movieDirector} 
+                handleYearInput={this.handleYearInput}
+                movieYear={this.state.movieYear}
+                handlePosterUrlInput={this.handlePosterUrlInput}
+                posterURL={this.state.posterURL}
+                handleRatingInput={this.handleRatingInput}
+                movieRating={this.state.movieRating}
+                handleSubmitEditedMovie={this.handleSubmitEditedMovie}
+                />}/>
+
+          <Route path="/index" render={(props) => <Index {...props} movieTable={movieTable}/>}/> 
+          <Route path="/addMovie" render={(props) => <AddMovie {...props} {...this.state} 
+                handleAddMovieMessage={this.handleAddMovieMessage} 
+                addMovieMessage={this.state.addMovieMessage}
+                newMoviePosted={this.state.newMoviePosted}
+                handleNameInput={this.handleNameInput}
+                movieName={this.state.movieName}
+                handleDirectorInput={this.handleDirectorInput}
+                movieDirector={this.state.movieDirector} 
+                handleYearInput={this.handleYearInput}
+                movieYear={this.state.movieYear}
+                handlePosterUrlInput={this.handlePosterUrlInput}
+                posterURL={this.state.posterURL}
+                handleRatingInput={this.handleRatingInput}
+                movieRating={this.state.movieRating}
+                handleSubmitNewMovie={this.handleSubmitNewMovie}/>}/> 
         </div>
       </Router>
     )
