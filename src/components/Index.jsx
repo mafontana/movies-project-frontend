@@ -3,7 +3,6 @@ import { Route, Link } from 'react-router-dom'
 import Edit from "./Edit"
 
 class Index extends Component {
-
     render() {
       return (
         <div className="Index">
@@ -33,25 +32,8 @@ class Index extends Component {
                 <button className="addMovieButton"><Link to="/addMovie">Add New Movie</Link></button>
             </div>
             </div>
-      );
+      )
     }
   }
   
   export default Index;
-
-
-
-//   <Router>
-//                 <Route exact path="/edit" render={(routeProps) => <Edit {...routeProps} selectedMovie={this.state.selectedMovie }/>}/>
-//             </Router>
-  
-
-
-//<td><button onClick={this.props.handleClickEdit.bind(this, movie)}>Edit</button></td>
-
-//   <Router>
-          
-      
-//   {this.state.selectedMovie ? <Route exact path="/edit" render={() => <Edit selectedMovie={this.state.selectedMovie }/>}/> : null}
-
-// </Router>
