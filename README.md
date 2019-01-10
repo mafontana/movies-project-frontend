@@ -1,3 +1,36 @@
+# Movie Ratings: Front End
+
+Movie Ratings is a full stack application that allows you to create movie reviews.
+
+## Links
+
+* [Movie Ratings Front End](https://movie-crud-app-maf.herokuapp.com//) - Movie Ratings Front End Application
+* [Movie Ratings Back End](https://movies-project-maf.herokuapp.com/) - Movie Ratings Back End Server and Database
+* [Movie Ratings Front End Repository](https://github.com/mafontana/movies-project-frontend/) - Movie Ratings Front End Github Repository
+* [Movie Ratings Back End Repository](https://github.com/mafontana/movies-project-backend/) - Movie Ratings Back End Github Repository
+
+
+## Prerequisites
+
+Software necessary to run the application:
+
+* [Heroku](https://www.heroku.com/) - Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+* [NPM](https://www.npmjs.com/) - npm is a package manager for the JavaScript programming language. It is the default package manager for the JavaScript runtime environment Node.js.
+* [Node.js](https://www.nodejs.org/) - Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser.
+
+
+## Technologies
+
+* [React.js](https://reactjs.org/) - React is a JavaScript library for building user interfaces.
+* [React Router](https://reacttraining.com/react-router/) - React router is a routing library built on top of React which is used to create the routing in react apps.
+
+
+## Author
+
+* **Meredith Fontana** [mafontana](https://github.com/mafontana)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
