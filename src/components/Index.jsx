@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
-import Edit from "./Edit"
 
 class Index extends Component {
     render() {
@@ -22,9 +21,9 @@ class Index extends Component {
                             <th>Delete</th>
                         </tr>    
                     </thead>
-                <tbody>
-                   {this.props.movieTable}
-                </tbody>
+                    <tbody>
+                    {this.props.movieTable}
+                    </tbody>
                 </table>
             </div>
             <div className="addMovieButtonDiv">

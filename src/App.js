@@ -46,7 +46,6 @@ handleGetRequest = () => {
   
   handleIdRequest = (event) => {
       event.preventDefault()
-      console.log("event id:", event.target.id)
       const clickedMovieId = event.target.id
  
     fetch(`https://movies-project-maf.herokuapp.com/${event.target.id}`)
@@ -74,8 +73,6 @@ handleGetRequest = () => {
     }
 
     handleAddMovieMessage = () => {
-        
-      console.log("handle movie message")
       this.setState({
         addMovieMessage: "You submit a new movie!",
         newMoviePosted: !this.state.newMoviePosted
@@ -84,42 +81,36 @@ handleGetRequest = () => {
     }
 
     handleNameInput = (event) => {
-      console.log(event.target.value)
       this.setState({
           movieName: event.target.value
         })
   }
 
   handleDirectorInput = (event) => {
-      console.log(event.target.value)
       this.setState({
           movieDirector: event.target.value
         })
   }
 
   handleYearInput = (event) => {
-      console.log(event.target.value)
       this.setState({
           movieYear: event.target.value
         })
   }
 
   handlePosterUrlInput = (event) => {
-      console.log(event.target.value)
       this.setState({
           posterURL: event.target.value
         })
   }
 
   handleDirectorInput = (event) => {
-    console.log(event.target.value)
     this.setState({
         movieDirector: event.target.value
       })
 }
 
 handleRatingInput = (event) => {
-  console.log(event.target.value)
   this.setState({
       movieRating: event.target.value
     })
@@ -140,7 +131,6 @@ handleSubmitEditedMovie = (event) => {
           poster_url: this.state.posterURL
           })
       })
-      console.log("you submit the PUT request")
 }
 
 handleSubmitNewMovie = (event) => {
@@ -158,22 +148,17 @@ handleSubmitNewMovie = (event) => {
           poster_url: this.state.posterUrl
           })
       })
-      console.log("you submit a new movie!")
-      
 }
 
   render() {
     const selectedMovieTitle = this.state.selectedMovie.title
-
     const movieById = this.state.movieById.map(movie => 
       <div className="selectedMovieToEdit">
         <div className="movieHeaderFont">{movie.title}</div>
-       
           <div>Director: {movie.director}</div>
           <div>Year: {movie.year}</div>
           <div>Rating: {movie.my_rating}</div>
           <div><img src={movie.poster_url} className="selectedImage"></img></div>
-       
       </div>
       )
     
