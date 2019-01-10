@@ -175,7 +175,7 @@ handleSubmitNewMovie = (event) => {
           <td>{movie.my_rating}</td>
           <td><img src={movie.poster_url} /></td>
           <td>
-            <button onClick={this.handleIdRequest} className="editButton"><Link to="/edit" id={movie.id}><img id="editIcon" src={require("./edit.png")}></img></Link></button>
+            <button onClick={this.handleIdRequest} className="editButton"><Link to="/edit" id={movie.id}><img id={movie.id} className="editIcon" src={require("./edit.png")}></img></Link></button>
           </td>
           <td><button onClick={this.deleteMovie} id={movie.id} className="deleteButton"><Link to="/index" id={movie.id} >X</Link></button></td>
         </tr>
