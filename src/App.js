@@ -4,6 +4,7 @@ import Home from "./components/Home"
 import Index from "./components/Index"
 import Edit from "./components/Edit"
 import AddMovie from "./components/AddMovie"
+import SearchResult from "./components/SearchResult"
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 
@@ -172,7 +173,13 @@ this.setState({
 
   render() {
 
-   const displayFilteredMovie = this.state.filteredMovie.map(movie => <h1>{movie.title}</h1>)
+   const displayFilteredMovie = this.state.filteredMovie.map(movie => <div className="selectedMovieToEdit">
+   <div className="movieHeaderFont">{movie.title}</div>
+     <div>Director: {movie.director}</div>
+     <div>Year: {movie.year}</div>
+     <div>Rating: {movie.my_rating}</div>
+     <div><img src={movie.poster_url} className="selectedImage"></img></div>
+ </div>)
 
     const selectedMovieTitle = this.state.selectedMovie.title
     const movieById = this.state.movieById.map(movie => 
@@ -206,6 +213,11 @@ const movieId = this.state.movieId
         <div>
           
           <Route exact path="/" component={Home} exact />
+          <Route path="/search" render={(props) => <SearchResult {...props} {...this.state}
+                displayFilteredMovie={displayFilteredMovie}
+                handleSearchInput={this.handleSearchInput}
+                handleSearchButton={this.handleSearchButton}
+                />}/>
           <Route path="/edit" render={(props) => <Edit {...props} {...this.state}
                 selectedMovie={selectedMovieTitle} 
                 movieById={movieById} 

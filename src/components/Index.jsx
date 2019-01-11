@@ -6,7 +6,7 @@ class Index extends Component {
     render() {
       return (
         <div className="Index">
-        <SearchBar/>
+        <SearchBar handleSearchInput={this.props.handleSearchInput} handleSearchButton={this.props.handleSearchButton}/>
             <div className="indexHeader">
             Lambchop's Favorite Movies:
             </div>
