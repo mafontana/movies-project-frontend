@@ -6,10 +6,10 @@ class SearchBar extends Component {
   render() {
       return (
         <div className="SearchBar">
-        <input type="text" onChange={this.props.handleSearchInput}></input>
-          <button onClick={this.props.handleSearchButton}><Link to="/search">Search</Link></button>
-          {this.props.displayFilteredMovie}
-          <p>this is the filtered movie</p>
+            <div>Search for your favorite movie:</div>
+            <input type="text" onChange={this.props.handleSearchInput}></input>
+            <button className="searchButton" onClick={this.props.handleSearchButton}><Link to="/search">Search</Link></button>
+            {this.props.displayFilteredMovie}
         </div>
       )
     }

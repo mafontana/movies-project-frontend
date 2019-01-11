@@ -325,3 +325,17 @@ button.backButton:hover {
   outline: none;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
+.SearchBar {
+  margin-top: 1vw;
+  margin-left: 1.5vw;
+  display: flex;
+  flex-direction: column;
+}
+
+button.searchButton {
+  width: fit-content;
+  border: 2px solid #4BA2BD;
+  border-radius: 4px;
+  
+}
