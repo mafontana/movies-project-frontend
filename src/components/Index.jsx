@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import SearchBar from "./SearchBar"
 import { Route, Link } from 'react-router-dom'
 
 class Index extends Component {
     render() {
       return (
         <div className="Index">
+        <SearchBar/>
             <div className="indexHeader">
             Lambchop's Favorite Movies:
             </div>

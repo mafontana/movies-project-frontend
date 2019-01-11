@@ -22,7 +22,9 @@ class App extends Component {
       movieYear: 0,
       movieRating: 0,
       movieId: 0,
-      posterURL: ""
+      posterURL: "",
+      searchInput: "",
+      filteredMovie: []
     }
   }
   
@@ -150,7 +152,28 @@ handleSubmitNewMovie = (event) => {
       })
 }
 
+handleSearchInput = (event) => {
+  console.log(this.state.searchInput)
+  this.setState({
+      searchInput: event.target.value
+    })
+}
+
+handleSearchButton = () => {
+  console.log("you submit the search button")
+  const filteredMovie = this.state.movies.filter(movie => {
+    return movie.title == this.state.searchInput
+})
+this.setState({
+  filteredMovie: filteredMovie
+})
+  console.log(this.state.filteredMovie)
+}
+
   render() {
+
+   const displayFilteredMovie = this.state.filteredMovie.map(movie => <h1>{movie.title}</h1>)
+
     const selectedMovieTitle = this.state.selectedMovie.title
     const movieById = this.state.movieById.map(movie => 
       <div className="selectedMovieToEdit">
@@ -181,6 +204,7 @@ const movieId = this.state.movieId
     return (
       <Router>
         <div>
+          
           <Route exact path="/" component={Home} exact />
           <Route path="/edit" render={(props) => <Edit {...props} {...this.state}
                 selectedMovie={selectedMovieTitle} 
@@ -199,7 +223,11 @@ const movieId = this.state.movieId
                 handleSubmitEditedMovie={this.handleSubmitEditedMovie}
                 />}/>
 
-          <Route path="/index" render={(props) => <Index {...props} movieTable={movieTable}/>}/> 
+          <Route path="/index" render={(props) => <Index {...props} {...this.state} 
+                movieTable={movieTable} 
+                handleSearchInput={this.handleSearchInput}
+                handleSearchButton={this.handleSearchButton}
+                displayFilteredMovie={displayFilteredMovie}/>}/> 
           <Route path="/addMovie" render={(props) => <AddMovie {...props} {...this.state} 
                 handleAddMovieMessage={this.handleAddMovieMessage} 
                 addMovieMessage={this.state.addMovieMessage}
